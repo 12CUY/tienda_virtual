@@ -1,0 +1,22 @@
+hr{
+    background-color: aqua;
+    color: aqua;
+    border: 3px solid;
+}
+
+#pepe2{
+    color: rgb(1, 1, 1);
+}
+#pepe2:hover{
+    color: rgb(255, 0, 0);
+    text-decoration: underline;
+}
+
+#pepe1{
+    color: rgb(1, 1, 1);
+}
+#pepe1:hover{
+    color: rgb(0, 81, 255);
+    text-decoration: underline;
+    border: 1px solid;
+}

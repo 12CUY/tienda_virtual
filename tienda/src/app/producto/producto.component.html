@@ -1,0 +1,61 @@
+<div class="container">
+    <h2 id="pepe2" >Productos</h2>
+    <table class="table">
+      <thead>
+        <tr>
+          <th id="pepe2">ID</th>
+          <th id="pepe2">Nombre</th>
+          <th id="pepe2">Descripción</th>
+          <th id="pepe2">Precio</th>
+          <th id="pepe2">Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!---clase de ing diego-->
+        <tr *ngFor="let producto of productos">
+          <td id="pepe1">{{ producto.id }}</td>
+          <td id="pepe1">{{ producto.nombre }}</td>
+          <td id="pepe1">{{ producto.descripcion }}</td>
+          <td id="pepe1">{{ producto.precio }}</td>
+          <td>
+            <button class="btn btn-primary" (click)="editarProducto(producto)">Editar</button>
+            <button class="btn btn-danger" (click)="eliminarProducto(producto.id)" style="margin-left: 20px;">Eliminar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <hr>
+    <h3 id="pepe2" >Agregar Producto</h3>
+    <form (ngSubmit)="agregarProducto()">
+      <div class="form-group">
+        <label for="nombre">Nombre:</label>
+        <input type="text" class="form-control" id="nombre" [(ngModel)]="nuevoProducto.nombre" name="nombre" required>      </div>
+      <div class="form-group">
+        <label for="descripcion">Descripción:</label>
+        <input type="text" class="form-control" id="descripcion" [(ngModel)]="nuevoProducto.descripcion" name="descripcion" required>      </div>
+      <div class="form-group">
+        <label for="precio">Precio:</label>
+        <input type="number" class="form-control" id="precio" [(ngModel)]="nuevoProducto.precio" name="precio" required>      </div>
+        <br>
+      <button type="submit" class="btn btn-success">Agregar</button>
+    </form>
+  <hr>
+    <h3 id="pepe2" >Editar Producto</h3>
+    <form *ngIf="edicionProducto" (ngSubmit)="guardarEdicionProducto()">
+    <div class="form-group">
+        <label  for="edit-nombre">Nombre:</label>
+        <input type="text" class="form-control" id="edit-nombre" [(ngModel)]="edicionProducto.nombre" name="edit-nombre" required>
+    </div>
+    <div class="form-group">
+        <label for="edit-descripcion">Descripción:</label>
+        <input type="text" class="form-control" id="edit-descripcion" [(ngModel)]="edicionProducto.descripcion" name="edit-descripcion" required>
+    </div>
+    <div class="form-group">
+        <label for="edit-precio">Precio:</label>
+        <input type="number" class="form-control" id="edit-precio" [(ngModel)]="edicionPrecio" name="edit-precio" required>
+    </div>
+    <br>
+      <button type="submit" class="btn btn-primary">Guardar</button>
+      <button type="button" class="btn btn-secondary" (click)="cancelarEdicionProducto()" style="margin-left: 20px;">Cancelar</button>
+    </form>
+</div>
